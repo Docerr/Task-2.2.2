@@ -10,22 +10,18 @@ import java.util.stream.Collectors;
 @Component
 public class CarDaoImpl implements CarDao {
 
-    @Override
-    public List<Car> carList() {
+    private static final List<Car> carList = List.of(
 
-        List<Car> carList = new ArrayList<>();
+        new Car("BMW", 200, 2),
+        new Car("Lada", 100000000, 20),
+        new Car("Tesla", 2, 1),
+        new Car("Mercedes", 30, 23),
+        new Car("RenaultRamilya", 200000000, 11)
+    );
 
-        carList.add(0, new Car("BMW", 200, 2));
-        carList.add(1, new Car("Lada", 100000000, 20));
-        carList.add(2, new Car("Tesla", 2, 1));
-        carList.add(3, new Car("Mercedes", 30, 23));
-        carList.add(4, new Car("RenaultRamilya", 200000000, 11));
-
-        return carList;
-    }
 
     @Override
-    public List<Car> getCars(List<Car> carList, int countOfCar) {
+    public List<Car> getCars(int countOfCar) {
         if(countOfCar == 0) {
             return carList;
         }
