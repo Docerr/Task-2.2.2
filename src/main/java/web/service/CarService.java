@@ -3,7 +3,8 @@ import web.model.Car;
 import java.util.List;
 
 public interface CarService {
-    List<Car> getCars(int countOfCar);
+    List<Car> listCars();
+    List<Car> getCars(List<Car> carList,int countOfCar);
 }
 
 

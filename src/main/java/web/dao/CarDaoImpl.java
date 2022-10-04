@@ -2,33 +2,28 @@ package web.dao;
 
 import org.springframework.stereotype.Component;
 import web.model.Car;
-
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class CarDaoImpl implements CarDao {
 
-    private static final List<Car> carList = List.of (
+    public List<Car> listCars() {
 
-        new Car("BMW", 200, 2),
-        new Car("Lada", 100000000, 20),
-        new Car("Tesla", 2, 1),
-        new Car("Mercedes", 30, 23),
-        new Car("RenaultRamilya", 2000000001, 11)
-//        new Car("RenaultRamilya2", 2000000002, 11),
-//        new Car("RenaultRamilya3", 2000000003, 11),
-//        new Car("RenaultRamilya4", 2000000004, 11),
-//        new Car("RenaultRamilya5", 2000000005, 11),
-//        new Car("RenaultRamilya6", 2000000006, 11)
+        List<Car> carList = new ArrayList<>();
 
-    );
+        carList.add(0, new Car("Lada", 20021, 23));
+        carList.add(1, new Car("Subaru", 20022, 5));
+        carList.add(2, new Car("Hyundai", 20023, 56));
+        carList.add(3, new Car("RAM", 20024, 76));
+        carList.add(4, new Car("BMW", 20015, 67));
+        carList.add(5, new Car("BMW1", 20015, 67));
+        carList.add(6, new Car("BMW2", 20015, 67));
+        carList.add(7, new Car("BMW3", 20015, 67));
+        carList.add(8, new Car("BMW4", 20015, 67));
+        carList.add(9, new Car("BMW5", 20015, 67));
 
-    @Override
-    public List<Car> getCars(int countOfCar) {
-        if(countOfCar == 0 || countOfCar >= 5) {
-            return carList;
-        }
-        return carList.stream().limit(countOfCar).collect(Collectors.toList());
+        return carList;
     }
+
 }
